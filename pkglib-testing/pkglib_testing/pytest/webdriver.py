@@ -22,7 +22,7 @@ def browser_to_use(webdriver, browser):
     b = getattr(webdriver.DesiredCapabilities(), browser, None)
     if not b:
         raise ValueError(
-            "Unknown browser requested '{}'.".format(browser)
+            "Unknown browser requested '{0}'.".format(browser)
         )
 
     #print "{}\n\nbrowser: {}\n\n{}".format('-'*80, browser, '-'*80)

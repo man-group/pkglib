@@ -33,10 +33,10 @@ class sanity_check(Command, CommandMixin):
         if errors:
             msg = ['']
             for dist in errors:
-                msg.append("Package: {}".format(dist))
+                msg.append("Package: {0}".format(dist))
                 for error in errors[dist]:
                     req, err = error
-                    msg.append("  Requirement: {}".format(req))
-                    msg.append("      {}".format(err))
+                    msg.append("  Requirement: {0}".format(req))
+                    msg.append("      {0}".format(err))
             raise ResolutionError('\n'.join(msg))
         log.info("All OK")

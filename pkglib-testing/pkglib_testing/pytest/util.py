@@ -102,7 +102,7 @@ def requires_config(vars_):
         def wrapper(request, *args, **kwargs):
             for var in vars_:
                 if not getattr(CONFIG, var):
-                    pytest.skip('pkglib_testing config variable {} missing, skipping test'.format(var))
+                    pytest.skip('pkglib_testing config variable {0} missing, skipping test'.format(var))
             return f(request, *args, **kwargs)
         return wrapper
     return decorator
