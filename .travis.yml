@@ -6,3 +6,4 @@ install:
   - python setup.py develop
 script:
   - python setup.py test --unit
+  - python setup.py test --integration
