@@ -22,7 +22,7 @@ def test_pyinstall_respects_i_flag():
         # raise an exception so we terminate here.
         raise OpenedCorrectUrl()
     
-    with patch('urllib2.urlopen', fake_urlopen):
+    with patch('setuptools.package_index.urllib2.urlopen', fake_urlopen):
 
         # Call pyinstall with the -i flag.
         args = ['pyinstall', '-i', pypi_url, package_name]

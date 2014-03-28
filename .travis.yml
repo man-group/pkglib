@@ -2,7 +2,10 @@ language: python
 python:
   - 2.6
   - 2.7
+env:
+  - SETUPTOOLS_VERSION=distribute==0.6.36
 install:
+  - pip install $SETUPTOOLS_VERSION
   - python setup.py develop
   - pip freeze
 script:
