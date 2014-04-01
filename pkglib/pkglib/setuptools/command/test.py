@@ -37,7 +37,6 @@ def gather_trailing_args():
                 trailing_args = test_args[idx:]
                 sys.argv = sys.argv[:-len(trailing_args)]
                 break
-        # print("Py.test switches: {}".format(test.trailing_args))
 
 
 class test(Command, CommandMixin):

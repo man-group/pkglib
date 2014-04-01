@@ -1,14 +1,9 @@
-'''
-Created on 2 Apr 2012
-
-@author: eeaston
-'''
 import sys
 import subprocess
 
 from pkg_resources import working_set
 
-from pkglib_testing.util import chdir
+from pkglib_util.cmdline import chdir
 
 
 def pytest_configure(config):

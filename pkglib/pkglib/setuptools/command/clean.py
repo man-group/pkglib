@@ -76,10 +76,10 @@ class clean(_clean, CommandMixin):
         for victim in self.find_victims():
             if os.path.isdir(victim):
                 self.execute(shutil.rmtree, (victim,),
-                             'Deleting directory {}'.format(victim))
+                             'Deleting directory {0}'.format(victim))
             else:
                 self.execute(os.unlink, (victim,),
-                             'Deleting {}'.format(victim))
+                             'Deleting {0}'.format(victim))
 
     def run(self):
         if self.packages:

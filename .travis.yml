@@ -7,3 +7,4 @@ install:
   - pip list
 script:
   - python setup.py test --unit
+  - python setup.py test --integration
