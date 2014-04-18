@@ -81,10 +81,10 @@ class easy_install(_easy_install, CommandMixin):
 
     def initialize_options(self):
         _easy_install.initialize_options(self)
+        self.index_url = self.maybe_add_simple_index(CONFIG.pypi_url)
 
     def finalize_options(self):
         _easy_install.finalize_options(self)
-        self.index_url = self.maybe_add_simple_index(CONFIG.pypi_url)
         self.set_undefined_options('install',
                                    ('install_data', 'install_data'),
                                    )
