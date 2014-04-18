@@ -10,7 +10,7 @@ from setuptools.command.easy_install import (easy_install as _easy_install,
                                              get_script_header, sys_executable,
                                              is_64bit, resource_string)
 
-from pkglib import egg_cache
+from pkglib import egg_cache, CONFIG
 from .base import CommandMixin
 
 
