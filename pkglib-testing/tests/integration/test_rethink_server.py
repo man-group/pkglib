@@ -1,3 +1,4 @@
+import pytest
 pytest_plugins = ['pkglib_testing.fixtures.server.rethink']
 
 
@@ -6,7 +7,10 @@ def test_rethink_server(rethink_server):
     assert rethink_server.conn.db == 'test'
 
 
-FIXTURE_TABLES = [('tbl_foo', 'code'), ('tbl_bar', 'id')]
+@pytest.fixture(scope='module')
+def rethink_tables():
+    return [('tbl_foo', 'code'), ('tbl_bar', 'id')]
+
 
 # Lots of tests needed here!
 
