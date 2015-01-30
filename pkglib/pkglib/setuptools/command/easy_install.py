@@ -10,7 +10,7 @@ from setuptools.command.easy_install import (easy_install as _easy_install,
                                              get_script_header, sys_executable,
                                              is_64bit, resource_string)
 
-from pkglib import egg_cache
+from pkglib import egg_cache, CONFIG
 from .base import CommandMixin
 
 
@@ -45,15 +45,15 @@ if __name__ == '__main__':
                     hdr = new_header
                 else:
                     hdr = header
-                yield (name+ext, hdr+script_text, 't', [name+x for x in old])
+                yield (name + ext, hdr + script_text, 't', [name + x for x in old])
                 yield (
-                    name+'.exe', resource_string('setuptools', launcher),
+                    name + '.exe', resource_string('setuptools', launcher),
                     'b'  # write in binary mode
                 )
             else:
                 # On other platforms, we assume the right thing to do is to
                 # just write the stub with no extension.
-                yield (name, header+script_text)
+                yield (name, header + script_text)
 
 
 def monkeypatch(module, attr):
@@ -81,6 +81,7 @@ class easy_install(_easy_install, CommandMixin):
 
     def initialize_options(self):
         _easy_install.initialize_options(self)
+        self.index_url = self.maybe_add_simple_index(CONFIG.pypi_url)
 
     def finalize_options(self):
         _easy_install.finalize_options(self)
